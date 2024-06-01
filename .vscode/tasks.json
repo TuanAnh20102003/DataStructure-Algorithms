@@ -4,7 +4,7 @@
       {
         "type": "cppbuild",
         "label": "C/C++: g++.exe build active file",
-        "command": "gcc.exe",
+        "command": "gcc.exe", //g++.exe if you code C++
         "args": [
           "-fdiagnostics-color=always",
           "-g",
@@ -22,7 +22,7 @@
           "kind": "build",
           "isDefault": true
         },
-        "detail": "compiler: C:\\MinGW\\bin\\gcc.exe"
+        "detail": "compiler: C:\\MinGW\\bin\\gcc.exe" //g++.exe if you code C++
       }
     ],
     "version": "2.0.0"
