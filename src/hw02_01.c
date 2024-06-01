@@ -1,3 +1,4 @@
+//Print out the fibonacci number sequence with the input limit value is 2^32 follow formmat “order – value”
 //I did not use 40 elements array, I used n elements array instead
 #include <stdio.h>
 #include <stdlib.h>
