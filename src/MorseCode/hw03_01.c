@@ -29,11 +29,12 @@ char getCharacterFromMorseCode(char* code) //Get character from morse code
 {
     int tableSize = sizeof(morseTable) / sizeof(MorseCode);
     for (int i = 0; i < tableSize; i++) {
-        if (strcmp(morseTable[i].code, code) == 0) {
+        if (strcmp(morseTable[i].code, code) == 0) 
+        {
             return morseTable[i].letter;
         }
     }
-    return '*';
+    return '*'; //Return * if the morse code is not found
 }
 
 void readInput(char* output) //Read input file
