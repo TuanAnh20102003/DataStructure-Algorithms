@@ -3,8 +3,8 @@
 #include <string.h>
 #include <stdbool.h>
 
-//use your path instead of mine
-#define INPUT_PATH "C:/Users/anhtu/Downloads/20217545_AnhTT/HW03_01/input.txt" 
+//use your own path
+#define INPUT_PATH "C:/Users/anhtu/Downloads/20217545_AnhTT/HW03_01/input.txt"
 #define OUTPUT_PATH "C:/Users/anhtu/Downloads/20217545_AnhTT/HW03_01/output.txt"
 
 typedef struct MorseCode //Like a map to store Morse code and its corresponding character
@@ -16,10 +16,10 @@ typedef struct MorseCode //Like a map to store Morse code and its corresponding 
 //Morse code table
 MorseCode morseTable[] = 
 {
-    {'A', ".-"},{'B', "-..."},{'C', "-.-."},{'D', "-.."},{'E', "."},{'F', "..-."},{'G', "--."},
-    {'H', "...."},{'I', ".."},{'J', ".---"},{'K', "-.-"},{'L', ".-.."},{'M', "--"},{'N', "-."},
-    {'O', "---"},{'P', ".--."},{'Q', "--.-"},{'R', ".-."},{'S', "..."},{'T', "-"},{'U', "..-"},
-    {'V', "...-"},{'W', ".--"},{'X', "-..-"},{'Y', "-.--"},{'Z', "--.."},
+    {'a', ".-"},{'b', "-..."},{'c', "-.-."},{'d', "-.."},{'e', "."},{'f', "..-."},{'g', "--."},
+    {'h', "...."},{'i', ".."},{'j', ".---"},{'k', "-.-"},{'l', ".-.."},{'m', "--"},{'n', "-."},
+    {'o', "---"},{'p', ".--."},{'q', "--.-"},{'r', ".-."},{'s', "..."},{'t', "-"},{'u', "..-"},
+    {'v', "...-"},{'w', ".--"},{'x', "-..-"},{'y', "-.--"},{'z', "--.."},
     {'1', ".----"},{'2', "..---"},{'3', "...--"},{'4', "....-"},{'5', "....."},{'6', "-...."},
     {'7', "--..."},{'8', "---.."},{'9', "----."},{'0', "-----"},{' ', "/"},{'#', "........"},
     {'.', ".-.-.-"},{',', "--..--"},{'?', "..--.."},{'-', "-....-"},{':', "---..."},
@@ -29,7 +29,7 @@ char getCharacterFromMorseCode(char* code) //Get character from morse code
 {
     int tableSize = sizeof(morseTable) / sizeof(MorseCode);
     for (int i = 0; i < tableSize; i++) {
-        if (strcmp(morseTable[i].code, code) == 0) 
+        if (strcmp(morseTable[i].code, code) == 0) //Compare the morse code with the code in the table
         {
             return morseTable[i].letter;
         }
@@ -37,7 +37,7 @@ char getCharacterFromMorseCode(char* code) //Get character from morse code
     return '*'; //Return * if the morse code is not found
 }
 
-void readInput(char* output) //Read input file
+void readInput(char* input) //Read input file
 {
     
     if (freopen(INPUT_PATH, "r", stdin) == NULL)
@@ -51,7 +51,7 @@ void readInput(char* output) //Read input file
         int numLines = 1; //Number of lines in the file
         int index = 0; //Index of the morseCode array
         char morseCode[10]; //Temporary Array to store morse code
-        int outputIndex = 0; //Index of the output array
+        int inputIndex = 0; //Index of the output array
             while((c = fgetc(stdin)) != EOF) //Read character by character
             {
                 
@@ -73,22 +73,22 @@ void readInput(char* output) //Read input file
                     {
                     morseCode[index] = '\0';
                     char character = getCharacterFromMorseCode(morseCode);    
-                    output[outputIndex] = character;
-                    outputIndex++;
+                    input[inputIndex] = character;
+                    inputIndex++;
                     index = 0;
                     memset(morseCode, 0, sizeof(morseCode));
                     }
                     if(c == '\n')
                     {
                         //printf("\n");
-                        output[outputIndex] = '\n';
-                        outputIndex++;
+                        input[inputIndex] = '\n';
+                        inputIndex++;
                     }
                     if(c == '/')
                     {
                         //printf(" ");
-                        output[outputIndex] = ' ';
-                        outputIndex++;
+                        input[inputIndex] = ' ';
+                        inputIndex++;
                     }
                 }
                 else
@@ -104,7 +104,7 @@ void readInput(char* output) //Read input file
             {
                 morseCode[index] = '\0';
                 char character = getCharacterFromMorseCode(morseCode);
-                output[outputIndex] = character;
+                input[inputIndex] = character;
             }
         
     }
