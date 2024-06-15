@@ -4,8 +4,8 @@
 #include <stdbool.h>
 
 //use your own path
-#define INPUT_PATH "C:/Users/anhtu/Downloads/20217545_AnhTT/HW03_01/input.txt"
-#define OUTPUT_PATH "C:/Users/anhtu/Downloads/20217545_AnhTT/HW03_01/output.txt"
+#define INPUT_PATH "input.txt"
+#define OUTPUT_PATH "output.txt"
 
 typedef struct MorseCode //Like a map to store Morse code and its corresponding character
 {
