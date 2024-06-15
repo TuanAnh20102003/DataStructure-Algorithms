@@ -1,7 +1,7 @@
 //Convert Morse code to text
 #include <stdio.h>
 #include <string.h>
-#include <stdbool.h>
+
 
 //use your own path
 #define INPUT_PATH "input.txt"
